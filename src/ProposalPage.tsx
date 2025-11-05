@@ -1,0 +1,404 @@
+import { Shield, CheckCircle, Users, Trophy, ArrowRight, LayoutGrid } from "lucide-react";
+import { useState } from "react";
+
+export default function ProposalPage() {
+  const [demoView, setDemoView] = useState<"organizer" | "player">("organizer");
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Simplified Hero */}
+      <section className="py-16 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900">
+        <div className="container max-w-4xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+            <Shield className="w-4 h-4 text-blue-300" />
+            <span className="text-sm text-blue-100 font-medium">Partnership Proposal for Toornament</span>
+          </div>
+          
+          <h1 className="text-4xl font-bold text-white mb-4 leading-tight">
+            Give Pro & Circuit Users<br />
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              A Feature Competitors Can't Copy
+            </span>
+          </h1>
+          
+          <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+            Sealed Club: Player verification & fair bracketing that only works through tournament platforms.
+          </p>
+
+          <div className="flex gap-6 justify-center text-center">
+            <div>
+              <div className="text-3xl font-bold text-white">95%</div>
+              <div className="text-sm text-slate-300">Join Rate</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-white">Zero</div>
+              <div className="text-sm text-slate-300">Manual Work</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-white">3x</div>
+              <div className="text-sm text-slate-300">Retention</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Value (Simplified) */}
+      <section className="py-16 bg-white">
+        <div className="container max-w-4xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+            Why Sealed Club is Perfect for Toornament
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Premium Differentiation",
+                desc: "Offer in Pro/Circuit tiers. Give paying customers a feature free users can't access."
+              },
+              {
+                title: "Competitive Moat",
+                desc: "Challonge & Battlefy can't copy this without platform-level integration."
+              },
+              {
+                title: "Simple Integration",
+                desc: "One API endpoint. 2-week timeline. We handle all verification & bracketing logic."
+              }
+            ].map((item, i) => (
+              <div key={i} className="bg-slate-50 border border-slate-200 rounded-lg p-6">
+                <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-700">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Demo - Toornament Native UI */}
+      <section className="py-16 bg-gradient-to-b from-slate-50 to-white">
+        <div className="container max-w-6xl mx-auto px-6">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-3">
+              See How It Works in Your Platform
+            </h2>
+            <p className="text-slate-600">
+              Sealed Club integrates seamlessly into Toornament's existing UI
+            </p>
+          </div>
+
+          {/* View Toggle */}
+          <div className="flex justify-center gap-4 mb-8">
+            <button
+              onClick={() => setDemoView("organizer")}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                demoView === "organizer"
+                  ? "bg-indigo-600 text-white shadow-lg"
+                  : "bg-white text-slate-700 border border-slate-300 hover:border-indigo-300"
+              }`}
+            >
+              <Users className="w-4 h-4 inline mr-2" />
+              Organizer View
+            </button>
+            <button
+              onClick={() => setDemoView("player")}
+              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                demoView === "player"
+                  ? "bg-cyan-600 text-white shadow-lg"
+                  : "bg-white text-slate-700 border border-slate-300 hover:border-cyan-300"
+              }`}
+            >
+              <Trophy className="w-4 h-4 inline mr-2" />
+              Player View
+            </button>
+          </div>
+
+          {/* Toornament-Style Demo */}
+          <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-slate-200">
+            <div className="flex">
+              {/* Sidebar (Toornament Style) */}
+              <div className="w-64 bg-[#2B2D42] text-white p-6 flex-shrink-0">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <Trophy className="w-5 h-5" />
+                  </div>
+                  <span className="font-bold">Organizer</span>
+                </div>
+
+                <div className="space-y-1">
+                  <div className="px-3 py-2 text-cyan-400 bg-cyan-400/10 rounded font-medium text-sm">
+                    Overview
+                  </div>
+                  <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                    Settings
+                  </div>
+                  <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                    Structure
+                  </div>
+                  <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                    Participants
+                  </div>
+                  <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                    Placement
+                  </div>
+                  <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                    Matches
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-slate-700">
+                  <div className="text-xs text-slate-500 mb-2">Tournament</div>
+                  <div className="font-semibold text-sm">Game Scrub</div>
+                  <div className="text-xs text-slate-400">Rocket League</div>
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div className="flex-1 p-8 bg-slate-50">
+                {demoView === "organizer" ? (
+                  <>
+                    <h2 className="text-2xl font-bold text-slate-900 mb-6">Registration Settings</h2>
+                    
+                    {/* Tabs */}
+                    <div className="flex gap-6 border-b border-slate-300 mb-6">
+                      <div className="pb-3 border-b-2 border-cyan-500 text-cyan-600 font-medium cursor-pointer">
+                        Configuration
+                      </div>
+                      <div className="pb-3 text-slate-500 cursor-pointer">Customization</div>
+                      <div className="pb-3 text-slate-400 cursor-pointer">Payment</div>
+                      <div className="pb-3 text-slate-500 cursor-pointer">Notification</div>
+                    </div>
+
+                    {/* Sealed Club Section (NEW!) */}
+                    <div className="bg-gradient-to-r from-purple-50 to-indigo-50 border-2 border-purple-300 rounded-lg p-6 mb-6">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Shield className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between mb-3">
+                            <div>
+                              <h3 className="font-bold text-slate-900 text-lg">GSeal Sealed Club</h3>
+                              <p className="text-sm text-slate-600">Verified player bracketing for fair competition</p>
+                            </div>
+                            <div className="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                              PRO FEATURE
+                            </div>
+                          </div>
+
+                          <div className="space-y-4">
+                            <div className="flex items-center gap-3">
+                              <input
+                                type="checkbox"
+                                id="enable-sealed"
+                                className="w-5 h-5 text-purple-600 rounded"
+                                defaultChecked
+                              />
+                              <label htmlFor="enable-sealed" className="font-medium text-slate-900 cursor-pointer">
+                                Enable Sealed Club for this tournament
+                              </label>
+                            </div>
+
+                            <div className="ml-8 space-y-3">
+                              <div className="flex items-center gap-3">
+                                <input
+                                  type="checkbox"
+                                  id="exclusive-mode"
+                                  className="w-5 h-5 text-purple-600 rounded"
+                                />
+                                <label htmlFor="exclusive-mode" className="text-sm text-slate-700 cursor-pointer">
+                                  Sealed Club Only (exclude non-verified players)
+                                </label>
+                              </div>
+
+                              <div className="bg-white rounded-lg p-4 border border-purple-200">
+                                <div className="text-xs text-slate-600 mb-2">Expected Benefits:</div>
+                                <div className="grid grid-cols-3 gap-4 text-center">
+                                  <div>
+                                    <div className="text-lg font-bold text-purple-600">95%</div>
+                                    <div className="text-xs text-slate-600">Player Join Rate</div>
+                                  </div>
+                                  <div>
+                                    <div className="text-lg font-bold text-purple-600">Auto</div>
+                                    <div className="text-xs text-slate-600">Bracket Generation</div>
+                                  </div>
+                                  <div>
+                                    <div className="text-lg font-bold text-purple-600">Zero</div>
+                                    <div className="text-xs text-slate-600">Manual Work</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Existing Toornament Settings */}
+                    <div className="bg-white rounded-lg p-6 border border-slate-200">
+                      <h3 className="font-semibold text-slate-900 mb-4">General</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <div className="text-sm text-slate-700 mb-2">Enable tournament registration?</div>
+                          <div className="flex gap-4">
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="registration" className="w-4 h-4" defaultChecked />
+                              <span className="text-sm">Yes</span>
+                            </label>
+                            <label className="flex items-center gap-2 cursor-pointer">
+                              <input type="radio" name="registration" className="w-4 h-4" />
+                              <span className="text-sm">No</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="text-2xl font-bold text-slate-900 mb-6">Tournament Registration</h2>
+                    
+                    {/* Tournament Info */}
+                    <div className="bg-white rounded-lg p-6 border border-slate-200 mb-6">
+                      <div className="flex items-start gap-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Trophy className="w-8 h-8 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h3 className="text-xl font-bold text-slate-900">Game Scrub Championship</h3>
+                            <div className="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
+                              <Shield className="w-3 h-3" />
+                              SEALED CLUB
+                            </div>
+                          </div>
+                          <div className="text-sm text-slate-600">Rocket League • 32 Players • Nov 15, 2025</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Sealed Club Invitation (NEW!) */}
+                    <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border-2 border-cyan-300 rounded-lg p-6 mb-6">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Shield className="w-5 h-5 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-slate-900 text-lg mb-2">Join Sealed Club for Fair Competition</h3>
+                          <p className="text-sm text-slate-700 mb-4">
+                            This tournament offers Sealed Club - compete with verified players in skill-matched brackets.
+                          </p>
+
+                          <div className="grid md:grid-cols-3 gap-3 mb-4">
+                            {[
+                              { icon: CheckCircle, text: "Verified rivals only" },
+                              { icon: LayoutGrid, text: "Skill-matched brackets" },
+                              { icon: Trophy, text: "Earn Bronze/Silver/Gold seal" }
+                            ].map((item, i) => (
+                              <div key={i} className="flex items-center gap-2 text-sm text-slate-700">
+                                <item.icon className="w-4 h-4 text-cyan-600 flex-shrink-0" />
+                                <span>{item.text}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="flex items-center gap-3">
+                            <input
+                              type="checkbox"
+                              id="join-sealed"
+                              className="w-5 h-5 text-cyan-600 rounded"
+                              defaultChecked
+                            />
+                            <label htmlFor="join-sealed" className="font-medium text-slate-900 cursor-pointer">
+                              Yes, join Sealed Club (optional but recommended)
+                            </label>
+                          </div>
+
+                          <div className="mt-4 bg-white rounded-lg p-4 border border-cyan-200">
+                            <div className="text-xs text-slate-600 mb-2">Your Seal Status:</div>
+                            <div className="flex items-center gap-3">
+                              <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-2xl">
+                                🥇
+                              </div>
+                              <div>
+                                <div className="font-bold text-slate-900">Gold Seal</div>
+                                <div className="text-xs text-slate-600">Account: 36 months • Rank: Diamond II</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Standard Registration Form */}
+                    <div className="bg-white rounded-lg p-6 border border-slate-200">
+                      <h3 className="font-semibold text-slate-900 mb-4">Player Information</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm text-slate-700 mb-1">In-game name</label>
+                          <input
+                            type="text"
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg"
+                            placeholder="Enter your in-game name"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm text-slate-700 mb-1">Email</label>
+                          <input
+                            type="email"
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg"
+                            placeholder="your@email.com"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-6 text-sm text-slate-600">
+            ↑ This is how Sealed Club appears in your existing Toornament UI - no disruption, just enhancement
+          </div>
+        </div>
+      </section>
+
+      {/* Simple Ask */}
+      <section className="py-16 bg-white">
+        <div className="container max-w-3xl mx-auto px-6">
+          <div className="bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-2xl p-10 text-center">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Let's Talk
+            </h2>
+            <p className="text-slate-700 mb-6 max-w-xl mx-auto">
+              30-minute call to demo Sealed Club, answer technical questions, and discuss a pilot with 5-10 Pro/Circuit organizers.
+            </p>
+            
+            <div className="flex gap-4 justify-center flex-wrap">
+              <a
+                href="mailto:partnerships@toornament.com?subject=Sealed%20Club%20Partnership&body=Hi%20Toornament%20Team%2C%0A%0AI'd%20like%20to%20schedule%20a%2030-minute%20call%20to%20discuss%20Sealed%20Club.%0A%0ALooking%20forward%20to%20connecting!"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all"
+              >
+                Schedule Call
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+
+            <div className="mt-6 text-sm text-slate-600">
+              Or submit via: <a href="https://www.toornament.com/en_US/contact" className="text-indigo-600 hover:underline" target="_blank" rel="noopener noreferrer">toornament.com/contact</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 bg-slate-900 text-slate-400 text-center text-sm">
+        <div className="flex items-center justify-center gap-2">
+          <Shield className="w-4 h-4 text-indigo-400" />
+          <span className="text-white font-semibold">GSeal Sealed Club</span>
+          <span>•</span>
+          <span>Partnership Proposal for Toornament</span>
+        </div>
+      </footer>
+    </div>
+  );
+}
