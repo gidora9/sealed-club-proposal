@@ -1,4 +1,4 @@
-import { Shield, CheckCircle, Users, Trophy, ArrowRight, LayoutGrid, X, Mail, User, Building2, MessageSquare } from "lucide-react";
+import { Shield, CheckCircle, Users, Trophy, ArrowRight, X, Mail, User, Building2, MessageSquare } from "lucide-react";
 import { useState } from "react";
 
 export default function ProposalPage() {
@@ -152,23 +152,8 @@ export default function ProposalPage() {
           </h1>
           
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            Sealed Club: Player verification & fair bracketing that only works through tournament platforms.
+            Player verification & fair bracketing that only works through tournament platforms. Give verified players a reason to choose your platform.
           </p>
-
-          <div className="flex gap-6 justify-center text-center">
-            <div>
-              <div className="text-3xl font-bold text-white">95%</div>
-              <div className="text-sm text-slate-300">Join Rate</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">Zero</div>
-              <div className="text-sm text-slate-300">Manual Work</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white">3x</div>
-              <div className="text-sm text-slate-300">Retention</div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -182,16 +167,16 @@ export default function ProposalPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                title: "Increase Pro/Circuit ARPU by 15-25%",
-                desc: "Exclusive feature that justifies premium pricing. Free users can't access Sealed Club - clear upgrade incentive."
+                title: "Premium Feature Differentiation",
+                desc: "Offer Sealed Club exclusively in Pro/Circuit tiers. Verified players get skill-matched brackets - a feature competitors can't easily replicate."
               },
               {
-                title: "3x Player Retention in 90 Days",
-                desc: "Verified players return more often because they've invested in their reputation. Sticky feature = sticky platform."
+                title: "Attract Serious Competitors",
+                desc: "Players who earn seals invest time in verification. They're more engaged, more likely to return, and value platforms that recognize their legitimacy."
               },
               {
-                title: "2-Week Integration, Zero Ongoing Work",
-                desc: "One API endpoint. We handle verification, seal assignment, and bracketing. Your team focuses on core platform."
+                title: "Simple Integration",
+                desc: "One API endpoint. We handle verification, seal assignment, and bracketing logic. Your team focuses on core platform features."
               }
             ].map((item, i) => (
               <div key={i} className="bg-slate-50 border border-slate-200 rounded-lg p-6">
@@ -462,61 +447,65 @@ export default function ProposalPage() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center justify-between mb-2">
-                              <h3 className="font-bold text-slate-900 text-lg">Join Sealed Club (Optional)</h3>
+                              <h3 className="font-bold text-slate-900 text-lg">Join Sealed Club</h3>
                               <div className="bg-cyan-100 text-cyan-700 text-xs font-bold px-3 py-1 rounded-full">
-                                RECOMMENDED
+                                REQUIRES GSEAL
                               </div>
                             </div>
                             <p className="text-sm text-slate-700 mb-4">
-                              Compete with verified players in skill-matched brackets. <strong>Free to join, takes 2 minutes.</strong>
+                              This tournament uses Sealed Club for fair competition. <strong>You need a GSeal to participate.</strong>
                             </p>
 
                             <div className="bg-white rounded-lg p-4 border border-cyan-200 mb-4">
-                              <div className="text-xs font-semibold text-slate-700 mb-3">How to Get Your Seal:</div>
+                              <div className="text-xs font-semibold text-slate-700 mb-3">How to Get Your GSeal:</div>
                               <div className="space-y-2">
                                 <div className="flex items-start gap-2 text-xs text-slate-700">
                                   <div className="w-5 h-5 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 text-cyan-700 font-bold">1</div>
-                                  <span>Link your Rocket League account (Steam/Epic)</span>
+                                  <span>Visit <strong>seal.gseal.gg</strong> and link your Rocket League account</span>
                                 </div>
                                 <div className="flex items-start gap-2 text-xs text-slate-700">
                                   <div className="w-5 h-5 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 text-cyan-700 font-bold">2</div>
-                                  <span>We verify your account age + skill rank</span>
+                                  <span>We verify your account age (24+ months) + skill rank</span>
                                 </div>
                                 <div className="flex items-start gap-2 text-xs text-slate-700">
                                   <div className="w-5 h-5 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 text-cyan-700 font-bold">3</div>
-                                  <span>Earn Bronze/Silver/Gold seal instantly</span>
+                                  <span>Receive Bronze/Silver/Gold seal based on your rank</span>
+                                </div>
+                                <div className="flex items-start gap-2 text-xs text-slate-700">
+                                  <div className="w-5 h-5 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 text-cyan-700 font-bold">4</div>
+                                  <span>Return here and register - you're now eligible for Sealed Club</span>
                                 </div>
                               </div>
-                              <div className="mt-3 text-xs text-slate-600">
-                                <strong>Requirements:</strong> 24+ month account • Any rank for Bronze • Plat+ for Silver • Diamond+ for Gold
+                              <div className="mt-3 pt-3 border-t border-cyan-100">
+                                <a href="https://seal.gseal.gg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-semibold text-cyan-600 hover:text-cyan-700">
+                                  Get Your GSeal Now →
+                                </a>
                               </div>
                             </div>
 
-                            <div className="flex items-center gap-3 mb-4">
-                              <input
-                                type="checkbox"
-                                id="join-sealed"
-                                className="w-5 h-5 text-cyan-600 rounded"
-                                defaultChecked
-                              />
-                              <label htmlFor="join-sealed" className="font-medium text-slate-900 cursor-pointer">
-                                Yes, I want to join Sealed Club (optional)
-                              </label>
+                            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-4">
+                              <div className="flex items-start gap-2">
+                                <div className="text-amber-600 text-lg">⚠️</div>
+                                <div className="text-xs text-amber-800">
+                                  <strong>Don't have a GSeal yet?</strong> Get yours at seal.gseal.gg (takes 2 minutes). You'll need it to register for this Sealed Club tournament.
+                                </div>
+                              </div>
                             </div>
 
                             <div className="bg-white rounded-lg p-4 border border-cyan-200">
-                              <div className="text-xs text-slate-600 mb-2">Your Benefits:</div>
-                              <div className="grid grid-cols-3 gap-3">
-                                {[
-                                  { icon: CheckCircle, text: "Verified rivals only" },
-                                  { icon: LayoutGrid, text: "Skill-matched bracket" },
-                                  { icon: Trophy, text: "Gold Seal earned" }
-                                ].map((item, i) => (
-                                  <div key={i} className="flex items-center gap-2 text-xs text-slate-700">
-                                    <item.icon className="w-3 h-3 text-cyan-600 flex-shrink-0" />
-                                    <span>{item.text}</span>
-                                  </div>
-                                ))}
+                              <div className="text-xs text-slate-600 mb-2">Your GSeal Status:</div>
+                              <div className="flex items-center gap-3 mb-3">
+                                <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-xl">
+                                  🥇
+                                </div>
+                                <div>
+                                  <div className="font-bold text-slate-900 text-sm">Gold Seal</div>
+                                  <div className="text-xs text-slate-600">Account: 36 months • Rank: Diamond II</div>
+                                </div>
+                              </div>
+                              <div className="text-xs text-slate-700 pt-2 border-t border-cyan-100">
+                                ✓ Eligible for Sealed Club tournaments<br/>
+                                ✓ Will be matched with Gold tier players
                               </div>
                             </div>
                           </div>
