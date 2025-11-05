@@ -182,16 +182,16 @@ export default function ProposalPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                title: "Premium Differentiation",
-                desc: "Offer in Pro/Circuit tiers. Give paying customers a feature free users can't access."
+                title: "Increase Pro/Circuit ARPU by 15-25%",
+                desc: "Exclusive feature that justifies premium pricing. Free users can't access Sealed Club - clear upgrade incentive."
               },
               {
-                title: "Competitive Moat",
-                desc: "Challonge & Battlefy can't copy this without platform-level integration."
+                title: "3x Player Retention in 90 Days",
+                desc: "Verified players return more often because they've invested in their reputation. Sticky feature = sticky platform."
               },
               {
-                title: "Simple Integration",
-                desc: "One API endpoint. 2-week timeline. We handle all verification & bracketing logic."
+                title: "2-Week Integration, Zero Ongoing Work",
+                desc: "One API endpoint. We handle verification, seal assignment, and bracketing. Your team focuses on core platform."
               }
             ].map((item, i) => (
               <div key={i} className="bg-slate-50 border border-slate-200 rounded-lg p-6">
@@ -270,34 +270,63 @@ export default function ProposalPage() {
                     <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                       <Trophy className="w-5 h-5" />
                     </div>
-                    <span className="font-bold">Organizer</span>
+                    <span className="font-bold">{demoView === "organizer" ? "Organizer" : "Player"}</span>
                   </div>
 
                   <div className="space-y-1">
-                    <div className="px-3 py-2 text-cyan-400 bg-cyan-400/10 rounded font-medium text-sm">
-                      Overview
-                    </div>
-                    <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
-                      Settings
-                    </div>
-                    <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
-                      Structure
-                    </div>
-                    <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
-                      Participants
-                    </div>
-                    <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
-                      Placement
-                    </div>
-                    <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
-                      Matches
-                    </div>
+                    {demoView === "organizer" ? (
+                      <>
+                        <div className="px-3 py-2 text-cyan-400 bg-cyan-400/10 rounded font-medium text-sm">
+                          Overview
+                        </div>
+                        <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                          Settings
+                        </div>
+                        <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                          Structure
+                        </div>
+                        <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                          Participants
+                        </div>
+                        <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                          Placement
+                        </div>
+                        <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                          Matches
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="px-3 py-2 text-cyan-400 bg-cyan-400/10 rounded font-medium text-sm">
+                          My Tournaments
+                        </div>
+                        <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                          Discover
+                        </div>
+                        <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                          My Profile
+                        </div>
+                        <div className="px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 rounded cursor-pointer text-sm">
+                          Settings
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-slate-700">
-                    <div className="text-xs text-slate-500 mb-2">Tournament</div>
-                    <div className="font-semibold text-sm">Game Scrub</div>
-                    <div className="text-xs text-slate-400">Rocket League</div>
+                    {demoView === "organizer" ? (
+                      <>
+                        <div className="text-xs text-slate-500 mb-2">Tournament</div>
+                        <div className="font-semibold text-sm">Game Scrub</div>
+                        <div className="text-xs text-slate-400">Rocket League</div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-xs text-slate-500 mb-2">Player</div>
+                        <div className="font-semibold text-sm">ProGamer_2024</div>
+                        <div className="text-xs text-slate-400">Rocket League</div>
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -432,25 +461,38 @@ export default function ProposalPage() {
                             <Shield className="w-5 h-5 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h3 className="font-bold text-slate-900 text-lg mb-2">Join Sealed Club for Fair Competition</h3>
+                            <div className="flex items-center justify-between mb-2">
+                              <h3 className="font-bold text-slate-900 text-lg">Join Sealed Club (Optional)</h3>
+                              <div className="bg-cyan-100 text-cyan-700 text-xs font-bold px-3 py-1 rounded-full">
+                                RECOMMENDED
+                              </div>
+                            </div>
                             <p className="text-sm text-slate-700 mb-4">
-                              This tournament offers Sealed Club - compete with verified players in skill-matched brackets.
+                              Compete with verified players in skill-matched brackets. <strong>Free to join, takes 2 minutes.</strong>
                             </p>
 
-                            <div className="grid md:grid-cols-3 gap-3 mb-4">
-                              {[
-                                { icon: CheckCircle, text: "Verified rivals only" },
-                                { icon: LayoutGrid, text: "Skill-matched brackets" },
-                                { icon: Trophy, text: "Earn Bronze/Silver/Gold seal" }
-                              ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-2 text-sm text-slate-700">
-                                  <item.icon className="w-4 h-4 text-cyan-600 flex-shrink-0" />
-                                  <span>{item.text}</span>
+                            <div className="bg-white rounded-lg p-4 border border-cyan-200 mb-4">
+                              <div className="text-xs font-semibold text-slate-700 mb-3">How to Get Your Seal:</div>
+                              <div className="space-y-2">
+                                <div className="flex items-start gap-2 text-xs text-slate-700">
+                                  <div className="w-5 h-5 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 text-cyan-700 font-bold">1</div>
+                                  <span>Link your Rocket League account (Steam/Epic)</span>
                                 </div>
-                              ))}
+                                <div className="flex items-start gap-2 text-xs text-slate-700">
+                                  <div className="w-5 h-5 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 text-cyan-700 font-bold">2</div>
+                                  <span>We verify your account age + skill rank</span>
+                                </div>
+                                <div className="flex items-start gap-2 text-xs text-slate-700">
+                                  <div className="w-5 h-5 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 text-cyan-700 font-bold">3</div>
+                                  <span>Earn Bronze/Silver/Gold seal instantly</span>
+                                </div>
+                              </div>
+                              <div className="mt-3 text-xs text-slate-600">
+                                <strong>Requirements:</strong> 24+ month account • Any rank for Bronze • Plat+ for Silver • Diamond+ for Gold
+                              </div>
                             </div>
 
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 mb-4">
                               <input
                                 type="checkbox"
                                 id="join-sealed"
@@ -458,20 +500,23 @@ export default function ProposalPage() {
                                 defaultChecked
                               />
                               <label htmlFor="join-sealed" className="font-medium text-slate-900 cursor-pointer">
-                                Yes, join Sealed Club (optional but recommended)
+                                Yes, I want to join Sealed Club (optional)
                               </label>
                             </div>
 
-                            <div className="mt-4 bg-white rounded-lg p-4 border border-cyan-200">
-                              <div className="text-xs text-slate-600 mb-2">Your Seal Status:</div>
-                              <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-2xl">
-                                  🥇
-                                </div>
-                                <div>
-                                  <div className="font-bold text-slate-900">Gold Seal</div>
-                                  <div className="text-xs text-slate-600">Account: 36 months • Rank: Diamond II</div>
-                                </div>
+                            <div className="bg-white rounded-lg p-4 border border-cyan-200">
+                              <div className="text-xs text-slate-600 mb-2">Your Benefits:</div>
+                              <div className="grid grid-cols-3 gap-3">
+                                {[
+                                  { icon: CheckCircle, text: "Verified rivals only" },
+                                  { icon: LayoutGrid, text: "Skill-matched bracket" },
+                                  { icon: Trophy, text: "Gold Seal earned" }
+                                ].map((item, i) => (
+                                  <div key={i} className="flex items-center gap-2 text-xs text-slate-700">
+                                    <item.icon className="w-3 h-3 text-cyan-600 flex-shrink-0" />
+                                    <span>{item.text}</span>
+                                  </div>
+                                ))}
                               </div>
                             </div>
                           </div>
