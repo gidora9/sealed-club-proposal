@@ -557,17 +557,19 @@ export default function ProposalPage() {
             30-minute call • No commitment • See the full integration
           </p>
           
-          <button
-            onClick={() => setShowContactForm(true)}
+          <a
+            href="https://calendar.app.google/fZsRh6ZViBYLHfUBA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white text-indigo-600 hover:bg-slate-50 px-10 py-5 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all transform hover:scale-105"
           >
             <Mail className="w-6 h-6" />
             Schedule Discovery Call
             <ArrowRight className="w-6 h-6" />
-          </button>
+          </a>
 
           <div className="mt-6 text-white/80 text-sm">
-            Or email: <a href="mailto:partnerships@toornament.com" className="underline hover:text-white">partnerships@toornament.com</a>
+            Or email: <a href="mailto:ebrahim@gaescrobbler.com" className="underline hover:text-white">ebrahim@gaescrobbler.com</a>
           </div>
         </div>
       </section>
