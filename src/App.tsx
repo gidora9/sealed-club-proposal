@@ -1,7 +1,5 @@
-import ProposalPage from "./ProposalPage";
+import GamerSealPage from "./GamerSealPage";
 
-function App() {
-  return <ProposalPage />;
+export default function App() {
+  return <GamerSealPage />;
 }
-
-export default App;
